@@ -1,7 +1,12 @@
 require 'bookmark'
 
 RSpec.describe Bookmark do
-    it "returns an array of bookmarks" do
-        expect(Bookmark.all).to eq ['https://www.bbc.co.uk/news', 'https://www.google.co.uk/']
+  describe '.all' do
+    it "returns the bookmarks from the database" do
+        bookmarks = Bookmark.all
+        expect(bookmarks).to include('http://www.makersacademy.com/')
+        expect(bookmarks).to include('http://www.destroyallsoftware.com')
+        expect(bookmarks).to include('http://www.google.com/')
     end
+  end
 end
